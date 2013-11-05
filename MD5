@@ -1,0 +1,15 @@
+94ba05479945a145ea46bfdb407b02e3 *DESCRIPTION
+7b641d09ce987a293dbc8433396ff906 *NAMESPACE
+beda883e8bb5f81f13b8cf8dfc8e1807 *NEWS
+a4e4535f4a9ba2397a97b71de35b55c8 *R/demo_funcs.R
+e96f2ed3bf9f9a8bf53f93a12186e8bb *R/mvnSparse.R
+4772dde34bc561b8d0cfd748d21bb7dd *build/vignette.rds
+4423297f7deeaf6576e7ffc6746473d5 *demo/00Index
+afec23627d13ef75216348e694255eac *demo/sparseMVN.R
+05040dd2a627398b5e1f5bf51f406cd7 *inst/doc/sparseMVN-vignette.Rnw
+8c85145920e31afe29fa94af60648cb3 *inst/doc/sparseMVN-vignette.pdf
+16f65d6751e6edd399ef13d074a696b1 *inst/examples/tables.R
+4caa5af138ea1a76252f1dc67ce40834 *man/rmvn-sparse.Rd
+362329463fc51a9f81da7ac28accc7b1 *man/sparseMVN-package.Rd
+05040dd2a627398b5e1f5bf51f406cd7 *vignettes/sparseMVN-vignette.Rnw
+1133780d678c2605c38153afe2684afb *vignettes/sparseMVN.bib

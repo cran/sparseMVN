@@ -1,4 +1,4 @@
-## Copyright (C) 2013-2015 Michael Braun
+## Copyright (C) 2013-2017 Michael Braun
 #' @title Multivariate normal functions with sparse covariance/precision matrix.
 #' @aliases dmvn.sparse rmvn.sparse
 #' @description Efficient sampling and density calculation from a multivariate
@@ -14,6 +14,7 @@
 #' matrix.  See details.
 #' @param prec If TRUE, CH is the Cholesky decomposition of the precision
 #' matrix.  If false, it is the decomposition for the covariance matrix.
+#' @param log If TRUE (default), returns the log density, else returns density. 
 #'
 #' @section Details:
 #' These functions uses sparse matrix operations to sample from, or compute the
@@ -40,10 +41,7 @@
 #'    CH <- Cholesky(V)
 #' 
 #'    x <- rmvn.sparse(10,rep(0,p*m+k),CH, FALSE)
-#'  ##  print(x)
-#' 
 #'    y <- dmvn.sparse(x[1,],rep(0,p*m+k), CH, FALSE)
-#'  ##  print(y)
 #'
 #' @export
 rmvn.sparse <- function(n, mu, CH, prec=TRUE) {
@@ -91,7 +89,7 @@ rmvn.sparse <- function(n, mu, CH, prec=TRUE) {
 
 #' @rdname rmvn.sparse
 #' @export
-dmvn.sparse <- function(x, mu, CH, prec=TRUE) {
+dmvn.sparse <- function(x, mu, CH, prec=TRUE, log=TRUE) {
 
 
     if (is.vector(x) | (is.atomic(x) & NCOL(x)==1)) {
@@ -136,6 +134,6 @@ dmvn.sparse <- function(x, mu, CH, prec=TRUE) {
         log.dens <- C - detL - Matrix::colSums(y*y)/2
     }
 
-    return(as.numeric(log.dens))
+    if (log) return (log.dens) else return (exp(log.dens))
 }
 

@@ -31,20 +31,20 @@ options(scipen=999)
 
 ## ----blockarrow, echo=FALSE, comment=NA------------------------------------
 Mat <- as(kronecker(diag(N), matrix(1, k, k)),"sparseMatrix")
-Mat <- rBind(Mat, Matrix(1, p, N*k))
-Mat <- cBind(Mat, Matrix(1, k*N+p, p))
+Mat <- rbind(Mat, Matrix(1, p, N*k))
+Mat <- cbind(Mat, Matrix(1, k*N+p, p))
 printSpMatrix(as(Mat,"nMatrix"))
 
 ## ----banded, echo=FALSE, comment=NA----------------------------------------
 Mat <- kronecker(Matrix(1, k, k), diag(N))
-Mat <- rBind(Mat, Matrix(1, p, N * k))
-Mat <- cBind(Mat, Matrix(1, k*N+p, p))
+Mat <- rbind(Mat, Matrix(1, p, N * k))
+Mat <- cbind(Mat, Matrix(1, k*N+p, p))
 printSpMatrix(as(Mat,"nMatrix"))
 
 ## ----echo=FALSE, results="hide"--------------------------------------------
 Mat2 <- as(kronecker(diag(Q),matrix(1,k,k)),"lMatrix") %>%
-    rBind(Matrix(TRUE,p,Q*k)) %>%
-    cBind(Matrix(TRUE, k*Q+p, p)) %>%
+    rbind(Matrix(TRUE,p,Q*k)) %>%
+    cbind(Matrix(TRUE, k*Q+p, p)) %>%
     as("dgCMatrix") %>%
     as("symmetricMatrix")
 A2 <- as(Mat2,"matrix")
